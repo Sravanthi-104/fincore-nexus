@@ -1,6 +1,5 @@
 package com.infosys.finbank.customerservice.model;
 
-import java.beans.Transient;
 import java.util.List;
 import java.util.UUID;
 
