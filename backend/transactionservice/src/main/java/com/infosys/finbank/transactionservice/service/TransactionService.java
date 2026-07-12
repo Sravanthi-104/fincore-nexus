@@ -1,5 +1,20 @@
 package com.infosys.finbank.transactionservice.service;
 
-public class TransactionService {
+import java.util.List;
+
+import com.infosys.finbank.transactionservice.dto.TransactionRequest;
+import com.infosys.finbank.transactionservice.dto.TransactionResponse;
+
+public interface TransactionService {
+
+    TransactionResponse createTransaction(TransactionRequest request);
+
+    TransactionResponse getTransaction(Long id);
+
+    List<TransactionResponse> getAllTransactions();
+
+    List<TransactionResponse> getTransactionsByAccount(Long accoutnId);
+
+    List<TransactionResponse> getTransactionsByCustomer(Long customerId);
 
 }
