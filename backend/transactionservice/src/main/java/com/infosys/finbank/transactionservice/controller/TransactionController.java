@@ -1,6 +1,7 @@
 package com.infosys.finbank.transactionservice.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,7 +54,7 @@ public class TransactionController {
     }
 
     @GetMapping("/customer/{customerId}")
-    public ResponseEntity<List<TransactionResponse>> getByCustomer(@PathVariable Long customerId) {
+    public ResponseEntity<List<TransactionResponse>> getByCustomer(@PathVariable UUID customerId) {
 
         return ResponseEntity.ok(service.getTransactionsByCustomer(customerId));
 

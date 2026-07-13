@@ -10,20 +10,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name = "customer")
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID custid;
     
     private String name;
     private String address;
     private String kycStatus;
 
-    // Ignores this field during H2 database table creation
+    @Transient// Ignores this field during H2 database table creation
     private List<Account> accounts; // Fixed: Changed from List<Object> to List<Account>
 
     public Customer() {}

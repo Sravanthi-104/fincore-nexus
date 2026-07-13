@@ -1,15 +1,17 @@
 package com.infosys.finbank.transactionservice.client;
 
+import java.util.UUID;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.infosys.finbank.transactionservice.client.dto.CustomerResponse;
 
-@FeignClient(name = "CUSTOMER-SERVICE")
+@FeignClient(name = "customer-service", url = "http://localhost:8081")
 public interface CustomerFeignClient {
 
-    @GetMapping("/customers/{id}")
-    CustomerResponse getCustomerById(@PathVariable Long id);
+    @GetMapping("/customer/{id}")
+    CustomerResponse getCustomerById(@PathVariable UUID id);
 
 }

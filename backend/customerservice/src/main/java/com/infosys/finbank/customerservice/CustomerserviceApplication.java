@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = "com.infosys.customer.client")
+@EnableFeignClients
 public class CustomerserviceApplication {
 
 	public static void main(String[] args) {

@@ -2,6 +2,7 @@ package com.infosys.finbank.transactionservice.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import com.infosys.finbank.transactionservice.enums.TransactionStatus;
 import com.infosys.finbank.transactionservice.enums.TransactionType;
@@ -30,7 +31,7 @@ public class Transaction {
     private Long accountId;
 
     @Column(nullable = false)
-    private Long customerId;
+    private UUID customerId;
 
     @Column(nullable = false, precision = 18, scale = 2)
     private BigDecimal amount;
@@ -76,11 +77,11 @@ public class Transaction {
         this.accountId = accountId;
     }
 
-    public Long getCustomerId() {
+    public UUID getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(UUID customerId) {
         this.customerId = customerId;
     }
 
@@ -135,7 +136,7 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(Long id, String transactionReference, Long accountId, Long customerId, BigDecimal amount,
+    public Transaction(Long id, String transactionReference, Long accountId, UUID customerId, BigDecimal amount,
             BigDecimal balanceAfterTransaction, TransactionType transactionType, TransactionStatus status,
             LocalDateTime transactionDate, String remarks) {
         this.id = id;

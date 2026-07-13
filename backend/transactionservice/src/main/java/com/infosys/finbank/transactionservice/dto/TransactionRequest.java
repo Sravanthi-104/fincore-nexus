@@ -1,6 +1,7 @@
 package com.infosys.finbank.transactionservice.dto;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 import com.infosys.finbank.transactionservice.enums.TransactionType;
 
@@ -8,7 +9,7 @@ public class TransactionRequest {
 
     private Long accountId;
 
-    private Long customerId;
+    private UUID customerId;
 
     private BigDecimal amount;
 
@@ -24,11 +25,11 @@ public class TransactionRequest {
         this.accountId = accountId;
     }
 
-    public Long getCustomerId() {
+    public UUID getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(UUID customerId) {
         this.customerId = customerId;
     }
 

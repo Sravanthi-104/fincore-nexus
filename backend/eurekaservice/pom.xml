@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.infosys.finbank</groupId>
-	<artifactId>transactionservice</artifactId>
+	<artifactId>eurekaservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>transactionservice</name>
+	<name>eurekaservice</name>
 	<description/>
 	<url/>
 	<licenses>
@@ -37,25 +37,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-    		<groupId>org.springframework.boot</groupId>
-    		<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-    		<groupId>com.mysql</groupId>
-    		<artifactId>mysql-connector-j</artifactId>
-    		<scope>runtime</scope>
-		</dependency>
-		<dependency>
-    		<groupId>me.paulschwarz</groupId>
-    		<artifactId>spring-dotenv</artifactId>
-    		<version>4.0.0</version>
-		</dependency>
-		<dependency>
-    		<groupId>org.springframework.cloud</groupId>
-    		<artifactId>spring-cloud-starter-openfeign</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 
 		<dependency>

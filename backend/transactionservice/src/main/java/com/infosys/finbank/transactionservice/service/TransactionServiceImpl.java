@@ -95,7 +95,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public List<TransactionResponse> getTransactionsByCustomer(Long customerId) {
+    public List<TransactionResponse> getTransactionsByCustomer(UUID customerId) {
 
         return repository.findByCustomerId(customerId)
         .stream()

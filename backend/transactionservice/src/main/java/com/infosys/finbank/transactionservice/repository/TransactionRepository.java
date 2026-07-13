@@ -2,6 +2,7 @@ package com.infosys.finbank.transactionservice.repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -11,7 +12,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     List<Transaction> findByAccountId(Long accountId);
 
-    List<Transaction> findByCustomerId(Long customerId);
+    List<Transaction> findByCustomerId(UUID customerId);
 
     Optional<Transaction> findByTransactionReference(String reference);
 

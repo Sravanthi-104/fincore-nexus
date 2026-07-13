@@ -1,63 +1,37 @@
 package com.infosys.finbank.transactionservice.client.dto;
 
+import java.util.UUID;
+
 public class CustomerResponse {
 
-    private Long customerId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
-    private String customerStatus;
-    
-    public CustomerResponse() {
-    }
+    private UUID customerId;
+    private String name;
+    private String address;
+    private String kycStatus;
 
-    public Long getCustomerId() {
+    public UUID getCustomerId() {
         return customerId;
     }
-
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(UUID customerId) {
         this.customerId = customerId;
     }
-
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public String getLastName() {
-        return lastName;
+    public String getAddress() {
+        return address;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setAddress(String address) {
+        this.address = address;
     }
-
-    public String getEmail() {
-        return email;
+    public String getKycStatus() {
+        return kycStatus;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getCustomerStatus() {
-        return customerStatus;
-    }
-
-    public void setCustomerStatus(String customerStatus) {
-        this.customerStatus = customerStatus;
+    public void setKycStatus(String kycStatus) {
+        this.kycStatus = kycStatus;
     }
 
 }
