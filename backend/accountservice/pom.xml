@@ -45,11 +45,19 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Eureka Client -->
+        <!-- OpenFeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- Remove this if your team is NOT using Eureka -->
+        <!--
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        -->
 
         <!-- Lombok -->
         <dependency>
