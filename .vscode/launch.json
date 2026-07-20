@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LoanserviceApplication",
+            "request": "launch",
+            "mainClass": "com.infosys.finbank.loanservice.LoanserviceApplication",
+            "projectName": "loanservice"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-AccountserviceApplication<accountservice>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
