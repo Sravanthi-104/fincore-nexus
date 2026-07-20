@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.infosys.finbank.transactionservice.client.dto.CustomerResponse;
 
-@FeignClient(name = "customer-service", url = "http://localhost:8081")
+@FeignClient(name = "customerservice")
 public interface CustomerFeignClient {
 
     @GetMapping("/customer/{id}")

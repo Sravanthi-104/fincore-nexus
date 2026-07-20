@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.infosys.finbank.transactionservice.client.dto.AccountResponse;
 
-@FeignClient(name = "ACCOUNT-SERVICE")
+@FeignClient(name = "accountservice")
 public interface AccountFeignClient {
 
     @GetMapping("/account/{id}")
