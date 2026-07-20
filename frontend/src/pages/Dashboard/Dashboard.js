@@ -1,0 +1,149 @@
+import "./Dashboard.css";
+
+import MainLayout from "../../layouts/MainLayout";
+
+// Components
+import DashboardCard from "../../components/DashboardCard/DashboardCard";
+import TransactionChart from "../../components/Charts/TransactionChart";
+import QuickActions from "../../components/QuickActions/QuickActions";
+import RecentActivity from "../../components/RecentActivity/RecentActivity";
+import CustomerTable from "../../components/CustomerTable/CustomerTable";
+import TransactionTable from "../../components/TransactionTable/TransactionTable";
+
+// Icons
+import {
+  FaUsers,
+  FaUniversity,
+  FaExchangeAlt,
+  FaHandHoldingUsd,
+} from "react-icons/fa";
+
+function Dashboard() {
+  return (
+    <MainLayout>
+      <div className="dashboard">
+
+        {/* Dashboard Title */}
+        <h1 className="dashboard-title">
+          Banking Dashboard
+        </h1>
+
+        {/* Statistics Cards */}
+        <div className="card-container">
+
+          <DashboardCard
+            title="Customers"
+            value="2,450"
+            color="#2563EB"
+            icon={<FaUsers />}
+            trend="+8%"
+          />
+
+          <DashboardCard
+            title="Accounts"
+            value="1,980"
+            color="#16A34A"
+            icon={<FaUniversity />}
+            trend="+5%"
+          />
+
+          <DashboardCard
+            title="Transactions"
+            value="12,500"
+            color="#F59E0B"
+            icon={<FaExchangeAlt />}
+            trend="+18%"
+          />
+
+          <DashboardCard
+            title="Loans"
+            value="350"
+            color="#DC2626"
+            icon={<FaHandHoldingUsd />}
+            trend="+3%"
+          />
+
+        </div>
+
+        <div className="welcome-card">
+
+    <div>
+
+        <h2>Welcome to FinCore Nexus</h2>
+
+        <p>
+
+            Enterprise Digital Banking Platform
+
+        </p>
+
+    </div>
+
+    <div>
+
+        <h1>₹12.4M</h1>
+
+        <p>Total Daily Transactions</p>
+
+    </div>
+
+</div>
+
+        {/* Quick Actions */}
+        <QuickActions />
+
+        {/* Transaction Chart */}
+        <div className="table-card chart-section">
+
+          <div className="section-header">
+            <h2>Monthly Transactions</h2>
+          </div>
+
+          <TransactionChart />
+
+        </div>
+
+        {/* Tables */}
+        <div className="table-container">
+
+          {/* Recent Transactions */}
+          <div className="table-card">
+
+            <div className="section-header">
+              <h2>Recent Transactions</h2>
+            </div>
+
+            <TransactionTable />
+
+          </div>
+
+          {/* Recent Customers */}
+          <div className="table-card">
+
+            <div className="section-header">
+              <h2>Recent Customers</h2>
+            </div>
+
+            <CustomerTable />
+
+          </div>
+
+        </div>
+
+        {/* Recent Activity */}
+        <div className="activity-section">
+
+          <div className="section-header">
+            <h2>Recent Activity</h2>
+          </div>
+
+          <RecentActivity />
+
+        </div>
+
+      </div>
+    </MainLayout>
+  );
+}
+
+export default Dashboard;
