@@ -1,36 +1,64 @@
 import "./QuickActions.css";
+
 import {
   FaUserPlus,
+  FaUniversity,
   FaExchangeAlt,
-  FaFileInvoiceDollar,
   FaSearch
 } from "react-icons/fa";
 
+import { useNavigate } from "react-router-dom";
+
 function QuickActions() {
+
+  const navigate = useNavigate();
+
   return (
+
     <div className="quick-actions">
 
-      <div className="action-card">
+      {/* Add Customer */}
+      <div
+        className="action-card"
+        onClick={() => navigate("/add-customer")}
+        style={{ cursor: "pointer" }}
+      >
         <FaUserPlus />
         <h3>Add Customer</h3>
       </div>
 
-      <div className="action-card">
+      {/* Create Account */}
+      <div
+        className="action-card"
+        onClick={() => navigate("/create-account")}
+        style={{ cursor: "pointer" }}
+      >
+        <FaUniversity />
+        <h3>Create Account</h3>
+      </div>
+
+      {/* Transfer Money */}
+      <div
+        className="action-card"
+        onClick={() => navigate("/transactions")}
+        style={{ cursor: "pointer" }}
+      >
         <FaExchangeAlt />
-        <h3>Transfer Money</h3>
+        <h3>Transactions</h3>
       </div>
 
-      <div className="action-card">
-        <FaFileInvoiceDollar />
-        <h3>Create Loan</h3>
-      </div>
-
-      <div className="action-card">
+      {/* Search Customers */}
+      <div
+        className="action-card"
+        onClick={() => navigate("/customers")}
+        style={{ cursor: "pointer" }}
+      >
         <FaSearch />
-        <h3>Search Account</h3>
+        <h3>Search Customers</h3>
       </div>
 
     </div>
+
   );
 }
 

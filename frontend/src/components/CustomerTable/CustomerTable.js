@@ -10,24 +10,34 @@ function CustomerTable() {
     }, []);
 
     async function loadCustomers() {
+
         try {
+
             const data = await getAllCustomers();
-            setCustomers(data);
+
+            setCustomers(data.slice(-5).reverse());
+
         } catch (error) {
+
             console.error("Error loading customers:", error);
+
         }
+
     }
 
     return (
+
         <table>
 
             <thead>
 
                 <tr>
+
                     <th>Customer ID</th>
                     <th>Name</th>
                     <th>Address</th>
                     <th>KYC Status</th>
+
                 </tr>
 
             </thead>
@@ -36,9 +46,9 @@ function CustomerTable() {
 
                 {customers.map((customer) => (
 
-                    <tr key={customer.custId}>
+                    <tr key={customer.custid}>
 
-                        <td>{customer.custId}</td>
+                        <td>{customer.custid.substring(0, 8)}...</td>
 
                         <td>{customer.name}</td>
 
@@ -53,7 +63,9 @@ function CustomerTable() {
             </tbody>
 
         </table>
+
     );
+
 }
 
 export default CustomerTable;

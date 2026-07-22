@@ -1,5 +1,7 @@
 import "./Dashboard.css";
 
+import { useEffect, useState } from "react";
+
 import MainLayout from "../../layouts/MainLayout";
 
 // Components
@@ -10,6 +12,11 @@ import RecentActivity from "../../components/RecentActivity/RecentActivity";
 import CustomerTable from "../../components/CustomerTable/CustomerTable";
 import TransactionTable from "../../components/TransactionTable/TransactionTable";
 
+// Services
+import { getAllCustomers } from "../../services/customerService";
+import { getAllAccounts } from "../../services/accountService";
+import { getAllTransactions } from "../../services/transactionService";
+
 // Icons
 import {
   FaUsers,
@@ -19,21 +26,70 @@ import {
 } from "react-icons/fa";
 
 function Dashboard() {
+
+  const [stats, setStats] = useState({
+    customers: 0,
+    accounts: 0,
+    transactions: 0,
+    loans: 350,
+  });
+
+  useEffect(() => {
+
+    async function loadDashboard() {
+
+      try {
+
+        const [
+          customers,
+          accounts,
+          transactions,
+        ] = await Promise.all([
+          getAllCustomers(),
+          getAllAccounts(),
+          getAllTransactions(),
+        ]);
+
+        setStats({
+          customers: customers.length,
+          accounts: accounts.length,
+          transactions: transactions.length,
+          loans: 350,
+        });
+
+      } catch (error) {
+
+        console.error("Error loading dashboard:", error);
+
+      }
+
+    }
+
+    loadDashboard();
+
+  }, []);
+
   return (
+
     <MainLayout>
+
       <div className="dashboard">
 
         {/* Dashboard Title */}
+
         <h1 className="dashboard-title">
+
           Banking Dashboard
+
         </h1>
 
         {/* Statistics Cards */}
+
         <div className="card-container">
 
           <DashboardCard
             title="Customers"
-            value="2,450"
+            value={stats.customers}
             color="#2563EB"
             icon={<FaUsers />}
             trend="+8%"
@@ -41,7 +97,7 @@ function Dashboard() {
 
           <DashboardCard
             title="Accounts"
-            value="1,980"
+            value={stats.accounts}
             color="#16A34A"
             icon={<FaUniversity />}
             trend="+5%"
@@ -49,7 +105,7 @@ function Dashboard() {
 
           <DashboardCard
             title="Transactions"
-            value="12,500"
+            value={stats.transactions}
             color="#F59E0B"
             icon={<FaExchangeAlt />}
             trend="+18%"
@@ -57,7 +113,7 @@ function Dashboard() {
 
           <DashboardCard
             title="Loans"
-            value="350"
+            value={stats.loans}
             color="#DC2626"
             icon={<FaHandHoldingUsd />}
             trend="+3%"
@@ -65,38 +121,44 @@ function Dashboard() {
 
         </div>
 
+        {/* Welcome Card */}
+
         <div className="welcome-card">
 
-    <div>
+          <div>
 
-        <h2>Welcome to FinCore Nexus</h2>
+            <h2>Welcome to FinCore Nexus</h2>
 
-        <p>
+            <p>
 
-            Enterprise Digital Banking Platform
+              Enterprise Digital Banking Platform
 
-        </p>
+            </p>
 
-    </div>
+          </div>
 
-    <div>
+          <div>
 
-        <h1>₹12.4M</h1>
+            <h1>₹12.4M</h1>
 
-        <p>Total Daily Transactions</p>
+            <p>Total Daily Transactions</p>
 
-    </div>
+          </div>
 
-</div>
+        </div>
 
         {/* Quick Actions */}
+
         <QuickActions />
 
-        {/* Transaction Chart */}
+        {/* Monthly Transaction Chart */}
+
         <div className="table-card chart-section">
 
           <div className="section-header">
+
             <h2>Monthly Transactions</h2>
+
           </div>
 
           <TransactionChart />
@@ -104,13 +166,17 @@ function Dashboard() {
         </div>
 
         {/* Tables */}
+
         <div className="table-container">
 
           {/* Recent Transactions */}
+
           <div className="table-card">
 
             <div className="section-header">
+
               <h2>Recent Transactions</h2>
+
             </div>
 
             <TransactionTable />
@@ -118,10 +184,13 @@ function Dashboard() {
           </div>
 
           {/* Recent Customers */}
+
           <div className="table-card">
 
             <div className="section-header">
+
               <h2>Recent Customers</h2>
+
             </div>
 
             <CustomerTable />
@@ -131,10 +200,13 @@ function Dashboard() {
         </div>
 
         {/* Recent Activity */}
+
         <div className="activity-section">
 
           <div className="section-header">
+
             <h2>Recent Activity</h2>
+
           </div>
 
           <RecentActivity />
@@ -142,8 +214,11 @@ function Dashboard() {
         </div>
 
       </div>
+
     </MainLayout>
+
   );
+
 }
 
 export default Dashboard;
