@@ -87,8 +87,7 @@ public class LoanController{
     }
 
     @PostMapping("/credit-assessment/{loanId}")
-    public CreditAssessment assessCredit(@PathVariable Long loanId,
-                                        @RequestBody CreditAssessment assessment) {
+    public CreditAssessment assessCredit(@PathVariable Long loanId,@RequestBody CreditAssessment assessment) {
         return service.assessCredit(loanId, assessment);
     }
 
@@ -113,8 +112,7 @@ public class LoanController{
     }
 
     @PostMapping("/disburse/{loanId}")
-    public LoanDisbursement disburseLoan(@PathVariable Long loanId,
-                                        @RequestBody LoanDisbursement disbursement) {
+    public LoanDisbursement disburseLoan(@PathVariable Long loanId,@RequestBody LoanDisbursement disbursement) {
         return service.disburseLoan(loanId, disbursement);
     }
 
