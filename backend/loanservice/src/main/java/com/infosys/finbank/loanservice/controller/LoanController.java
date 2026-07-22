@@ -122,8 +122,7 @@ public class LoanController{
     }
 
     @PutMapping("/npa/{loanId}/{status}")
-    public Loan classifyNPA(@PathVariable Long loanId,
-                            @PathVariable NPAStatus status) {
+    public Loan classifyNPA(@PathVariable Long loanId,@PathVariable NPAStatus status) {
         return service.classifyNPA(loanId, status);
     }
 
