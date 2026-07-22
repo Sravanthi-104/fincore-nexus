@@ -37,6 +37,16 @@
             "projectName": "transactionservice",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaserviceApplication<eurekaservice>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.infosys.finbank.eurekaservice.EurekaserviceApplication",
+            "projectName": "eurekaservice",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
